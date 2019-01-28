@@ -1,0 +1,26 @@
+{
+    "pantry": [
+        {
+            "name": "Fruit Roll Up",
+            "count": 10
+        },
+        {
+            "name": "Fruit Cup",
+            "count": 0
+        },
+        {
+            "name": "Cheese It's",
+            "count": "3"
+        }
+    ],
+    "fridge": [
+        {
+            "name": "smoothies",
+            "count": 10
+        },
+        {
+            "name": "Baby Bell Cheese",
+            "count": 20
+        }
+    ]
+}
