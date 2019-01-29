@@ -1,5 +1,4 @@
 import { createLogger, transports, format } from 'winston';
-import { __, partial } from 'ramda';
 
 enum LoggingLevel {
     Debug = 'debug',
@@ -13,18 +12,17 @@ const logger = createLogger({
     transports: [
         new transports.Console({
           format: format.combine(
-              format.colorize(),
-              format.cli(),
+              format.cli()
           )
         })
     ]
 });
 
-const log = (level:LoggingLevel, msg:string, meta:any = undefined):void => { logger.log(level, msg, meta); return; };
-const logDebug = partial(log, [LoggingLevel.Debug]);
-const logInfo = partial(log, [LoggingLevel.Info]);
-const logWarn = partial(log, [LoggingLevel.Warn]);
-const logError = partial(log, [LoggingLevel.Error]);
+const log = (level:LoggingLevel, msg:string, meta?:any):void => { logger.log(level, msg, meta); return; };
+const logDebug = (msg: string, meta?: object) => log(LoggingLevel.Debug, msg, meta);
+const logInfo = (msg: string, meta?: object) => log(LoggingLevel.Info, msg, meta);
+const logWarn = (msg: string, meta?: object) => log(LoggingLevel.Warn, msg, meta);
+const logError = (msg: string, meta?: object) => log(LoggingLevel.Error, msg, meta);
 
 export {
     log,

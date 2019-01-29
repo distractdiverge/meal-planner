@@ -1,4 +1,10 @@
 import fs from 'fs';
+import R from 'ramda';
+
+export type Inventory = {
+    fridge: InventoryItem[];
+    pantry: InventoryItem[];
+}
 
 export type InventoryItem = {
   name: string;
@@ -13,16 +19,19 @@ const readFileBytes = (filepath:string):Promise<Buffer> => new Promise((resolve,
    )
 );
 
-const readFromFile = (filepath:string) => readFileBytes(filepath)
-    .then(buffer => {
-        // TODO: something with the buffer .... to JSON?
-        return buffer;
-    });
+const parseFile = (buffer:Buffer):Inventory => JSON.parse(buffer.toString());
 
-const getFridgeItems = () => { return []; }
+const readFile = (filepath:string):Promise<Inventory> =>
+    readFileBytes(filepath)
+        .then(parseFile);
+
+const getFridgeItems = (inventory:Inventory):InventoryItem[] => R.prop('fridge', inventory);
+const getPantryItems = (inventory:Inventory):InventoryItem[] => R.prop('pantry', inventory);
 
 export default {
     readFileBytes,
-    readFromFile,
+    parseFile,
+    readFile,
     getFridgeItems,
+    getPantryItems,
 };
