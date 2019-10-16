@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "convict": "^5.0.0",
-    "fp-ts": "^1.13.0",
     "ramda": "^0.26.1",
     "winston": "^3.2.0"
   }
