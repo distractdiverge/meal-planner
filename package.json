@@ -2,10 +2,13 @@
   "name": "meal-planner",
   "version": "0.1.0",
   "description": "A configurable meal planner based on what we have in the house, and meeting healthy requirements.",
-  "main": "index.js",
   "repository": "git@github.com:alexlapinski/meal-planner-ts.git",
   "author": "Alex Lapinski <contact@alexlapinski.name>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./lib/index.js"
+  },
   "devDependencies": {
     "@types/convict": "4.2.1",
     "@types/jest": "23.3.13",
