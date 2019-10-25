@@ -1,0 +1,3 @@
+name: meal-planner-infrastructure
+runtime: nodejs
+description: Infrastructure for the meal-planner application.

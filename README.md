@@ -53,4 +53,7 @@ There are three types of tests for this project.
    ```
 
 ## Infrastrcture
-TBD
+The production / test infrastructure is hosted within AWS. The infrastructure defined using [Pulumi](https://www.pulumi.com/) and is managed using Pulumi and the Community [Pulumi service](https://www.pulumi.com/docs/intro/console/).
+ 
+ * [Install Pulumi](https://www.pulumi.com/docs/get-started/aws/install-pulumi/)
+ * [Configure AWS](https://www.pulumi.com/docs/intro/cloud-providers/aws/setup/)
