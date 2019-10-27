@@ -1,9 +1,26 @@
+import { kms, rds } from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
 
-// Create an AWS resource (S3 Bucket)
-const bucket = new aws.s3.Bucket("my-bucket");
+const database = new rds.Cluster('postgresql', {
+    backupRetentionPeriod: 5,
+    clusterIdentifier: 'meal-planner-db-cluster',
+    databaseName: 'mealplanner',
+    engine: 'aurora-postgresql',
+    engineMode: 'serverless',
+    engineVersion: '10.7',
+    masterPassword: 'bar123456', // TODO: Tie into Pulumi's "Random" & Secrets Management
+    masterUsername: 'foo',
+    preferredBackupWindow: '02:00-03:00',
+    scalingConfiguration: {
+        maxCapacity: 8,
+        minCapacity: 2,
+    },
+    storageEncrypted: true,
+    tags: {
+        env: 'dev',
+        name: 'meal-planner',
+    },
+});
 
-// Export the name of the bucket
-export const bucketName = bucket.id;
+export const databaseId = database.id
+export const databaseUrl = database.endpoint
