@@ -1,26 +1,40 @@
-import { kms, rds } from "@pulumi/aws";
-import * as pulumi from "@pulumi/pulumi";
+import { rds } from '@pulumi/aws';
+import { Config, secret } from '@pulumi/pulumi';
+import { RandomPassword } from '@pulumi/random';
 
-const database = new rds.Cluster('postgresql', {
-    backupRetentionPeriod: 5,
-    clusterIdentifier: 'meal-planner-db-cluster',
-    databaseName: 'mealplanner',
-    engine: 'aurora-postgresql',
-    engineMode: 'serverless',
-    engineVersion: '10.7',
-    masterPassword: 'bar123456', // TODO: Tie into Pulumi's "Random" & Secrets Management
-    masterUsername: 'foo',
-    preferredBackupWindow: '02:00-03:00',
-    scalingConfiguration: {
-        maxCapacity: 8,
-        minCapacity: 2,
-    },
-    storageEncrypted: true,
+const config = new Config('aws');
+
+const randomPassword = new RandomPassword('password', {
+    length: 16,
+    overrideSpecial: '_%@',
+    special: true,
+});
+
+const database = new rds.Instance('meal-planner-database', {
+    allocatedStorage: 20,
+    autoMinorVersionUpgrade: true,
+    availabilityZone: config.require('availability_zone'),
+    engine: 'postgres',
+    engineVersion: '11.5',
+    identifier: 'mealplanner-db',
+    instanceClass: rds.InstanceTypes.T2_Micro,
+    maxAllocatedStorage: 50,
+    multiAz: false,
+    name: 'mealplannerdb',
+    optionGroupName: 'default:postgres-11',
+    parameterGroupName: 'default.postgres11',
+    password: randomPassword.result,
+    publiclyAccessible: true,
+    storageType: 'gp2', // GP2 = General Purpose SSD
+    username: 'mealplanner.service.admin',
     tags: {
         env: 'dev',
         name: 'meal-planner',
     },
 });
 
-export const databaseId = database.id
-export const databaseUrl = database.endpoint
+export const identifier = database.id;
+export const availabilityZone = database.availabilityZone;
+export const url = database.endpoint;
+export const username = database.username;
+export const password = secret(database.password);

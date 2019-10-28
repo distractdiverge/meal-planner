@@ -2,22 +2,23 @@
     "name": "aws-typescript",
     "author": "Alex Lapinski <contact@alexlapinski.name>",
     "repository": {
-      "type": "git",
-      "url": "git@github.com:alexlapinski/meal-planner.git",
-      "directory": "infrastructure"
+        "type": "git",
+        "url": "git@github.com:alexlapinski/meal-planner.git",
+        "directory": "infrastructure"
     },
     "engines": {
-      "node": ">=12.0.0"
+        "node": ">=12.0.0"
     },
     "scripts": {
-      "deploy": "pulumi up"
+        "deploy": "pulumi up"
     },
     "devDependencies": {
         "@types/node": "^8.0.0"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^1.0.0",
         "@pulumi/aws": "^1.0.0",
-        "@pulumi/awsx": "^0.18.10"
+        "@pulumi/awsx": "^0.18.10",
+        "@pulumi/pulumi": "^1.0.0",
+        "@pulumi/random": "^1.1.0"
     }
 }

@@ -1,3 +1,4 @@
 config:
+  aws:availability_zone: us-east-1a
   aws:profile: pulumi.service
   aws:region: us-east-1

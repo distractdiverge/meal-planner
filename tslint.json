@@ -3,5 +3,8 @@
   "extends": [
     "tslint-config-airbnb",
     "tslint-functional-preset"
-  ]
+  ],
+  "rules": {
+    "semicolon": [true, "always"]
+  }
 }
