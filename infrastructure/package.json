@@ -13,12 +13,12 @@
         "deploy": "pulumi up"
     },
     "devDependencies": {
-        "@types/node": "^8.0.0"
+        "@types/node": "8.10.56"
     },
     "dependencies": {
-        "@pulumi/aws": "^1.0.0",
-        "@pulumi/awsx": "^0.18.10",
-        "@pulumi/pulumi": "^1.0.0",
-        "@pulumi/random": "^1.1.0"
+        "@pulumi/aws": "1.7.0",
+        "@pulumi/awsx": "0.18.12",
+        "@pulumi/pulumi": "1.4.0",
+        "@pulumi/random": "1.1.0"
     }
 }
