@@ -22,6 +22,7 @@ const database = new rds.Instance('meal-planner-database', {
     parameterGroupName: 'default.postgres11',
     password: randomPassword.result,
     publiclyAccessible: true,
+    skipFinalSnapshot: true,
     storageType: 'gp2', // GP2 = General Purpose SSD
     username: 'mealplanner_service_admin',
     tags: {
