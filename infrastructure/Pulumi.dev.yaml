@@ -1,3 +1,4 @@
+encryptionsalt: v1:ePHTztm4Nfs=:v1:32NlOd87fEHMXAfS:E7TIFRHT6r3UVjOXNIrhieaAnpwUTg==
 config:
   aws:profile: pulumi.service
   aws:region: us-east-1
