@@ -2,8 +2,6 @@ import { rds } from '@pulumi/aws';
 import { Config, secret } from '@pulumi/pulumi';
 import { RandomPassword } from '@pulumi/random';
 
-const config = new Config('aws');
-
 const randomPassword = new RandomPassword('password', {
     length: 16,
     overrideSpecial: '_%@',
@@ -13,7 +11,6 @@ const randomPassword = new RandomPassword('password', {
 const database = new rds.Instance('meal-planner-database', {
     allocatedStorage: 20,
     autoMinorVersionUpgrade: true,
-    availabilityZone: config.require('availability_zone'),
     engine: 'postgres',
     engineVersion: '11.5',
     identifier: 'mealplanner-db',
@@ -26,7 +23,7 @@ const database = new rds.Instance('meal-planner-database', {
     password: randomPassword.result,
     publiclyAccessible: true,
     storageType: 'gp2', // GP2 = General Purpose SSD
-    username: 'mealplanner.service.admin',
+    username: 'mealplanner_service_admin',
     tags: {
         env: 'dev',
         name: 'meal-planner',
