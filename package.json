@@ -9,7 +9,7 @@
     "build": "tsc",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "prebuild": "npm run -s lint",
-    "pretest": "npm run -s lint",
+    "pretest": "npm run -s build",
     "start": "node ./lib/index.js",
     "test": "jest --forceExit --coverage --verbose"
   },
