@@ -8,15 +8,15 @@ enum Environment {
 }
 
 const config = convict({
-    env: {
-        default: Environment.Development,
-        doc: 'Node Environment',
-        env: 'NODE_ENV',
-        format: [ Environment.Development, Environment.Production, Environment.Test ],
-    }
+  env: {
+    default: Environment.Development,
+    doc: 'Node Environment',
+    env: 'NODE_ENV',
+    format: [Environment.Development, Environment.Production, Environment.Test],
+  },
 });
 
-const getEnv = partial(config.get, [ 'env' ]);
+const getEnv = partial(config.get, ['env']);
 
 export {
     Environment,

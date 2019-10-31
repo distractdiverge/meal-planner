@@ -1,37 +1,37 @@
 import fs from 'fs';
-import R from 'ramda';
+import * as R from 'ramda';
 
-export type Inventory = {
-    fridge: InventoryItem[];
-    pantry: InventoryItem[];
+export interface IInventory {
+  readonly fridge: ReadonlyArray<IInventoryItem>;
+  readonly pantry: ReadonlyArray<IInventoryItem>;
 }
 
-export type InventoryItem = {
-  name: string;
-  count: number;
-};
+export interface IInventoryItem {
+  readonly name: string;
+  readonly count: number;
+}
 
-const readFileBytes = (filepath:string):Promise<Buffer> => new Promise((resolve, reject) =>
+const readFileBytes = (filepath: string): Promise<Buffer> => new Promise((resolve, reject) =>
    fs.readFile(filepath, (err, data) =>
        err
         ? reject(err)
-        : resolve(data)
-   )
+        : resolve(data),
+   ),
 );
 
-const parseFile = (buffer:Buffer):Inventory => JSON.parse(buffer.toString());
+const parseFile = (buffer: Buffer): IInventory => JSON.parse(buffer.toString());
 
-const readFile = (filepath:string):Promise<Inventory> =>
+const readFile = (filepath: string): Promise<IInventory> =>
     readFileBytes(filepath)
         .then(parseFile);
 
-const getFridgeItems = (inventory:Inventory):InventoryItem[] => R.prop('fridge', inventory);
-const getPantryItems = (inventory:Inventory):InventoryItem[] => R.prop('pantry', inventory);
+const getFridgeItems = (inventory: IInventory): ReadonlyArray<IInventoryItem> => R.prop('fridge', inventory);
+const getPantryItems = (inventory: IInventory): ReadonlyArray<IInventoryItem> => R.prop('pantry', inventory);
 
 export default {
-    readFileBytes,
-    parseFile,
-    readFile,
-    getFridgeItems,
-    getPantryItems,
+  getFridgeItems,
+  getPantryItems,
+  parseFile,
+  readFile,
+  readFileBytes,
 };

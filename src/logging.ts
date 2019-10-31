@@ -1,4 +1,4 @@
-import { createLogger, transports, format } from 'winston';
+import { createLogger, format, transports } from 'winston';
 
 enum LoggingLevel {
     Debug = 'debug',
@@ -8,17 +8,22 @@ enum LoggingLevel {
 }
 
 const logger = createLogger({
-    level: LoggingLevel.Debug,
-    transports: [
-        new transports.Console({
-          format: format.combine(
-              format.cli()
-          )
-        })
-    ]
+  level: LoggingLevel.Debug,
+  transports: [
+    new transports.Console({
+      format: format.combine(
+        format.cli(),
+          ),
+    }),
+  ],
 });
 
-const log = (level:LoggingLevel, msg:string, meta?:any):void => { logger.log(level, msg, meta); return; };
+const log = (level: LoggingLevel, msg: string, meta?: any): void => {
+  logger.log(level, msg, meta);
+
+  return;
+};
+
 const logDebug = (msg: string, meta?: object) => log(LoggingLevel.Debug, msg, meta);
 const logInfo = (msg: string, meta?: object) => log(LoggingLevel.Info, msg, meta);
 const logWarn = (msg: string, meta?: object) => log(LoggingLevel.Warn, msg, meta);
@@ -31,4 +36,4 @@ export {
     logWarn,
     logError,
     LoggingLevel,
-}
+};
