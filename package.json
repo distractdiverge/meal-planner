@@ -7,20 +7,24 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start": "node ./lib/index.js"
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "prebuild": "npm run -s lint",
+    "pretest": "npm run -s lint",
+    "start": "node ./lib/index.js",
+    "test": "jest --forceExit --coverage --verbose"
   },
   "devDependencies": {
     "@types/convict": "4.2.1",
     "@types/jest": "23.3.14",
-    "@types/node": "10.12.18",
+    "@types/node": "^12.12.3",
     "@types/ramda": "0.25.47",
     "@types/winston": "2.4.4",
-    "jest": "24.0.0",
+    "jest": "^24.0.0",
     "ts-node": "8.0.2",
-    "tslint": "5.12.1",
+    "tslint": "^5.20.0",
     "tslint-config-airbnb": "5.11.1",
     "tslint-functional-preset": "1.5.0",
-    "typescript": "3.2.4"
+    "typescript": "^3.6.4"
   },
   "dependencies": {
     "convict": "5.2.0",

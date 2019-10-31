@@ -9,10 +9,10 @@ enum Environment {
 
 const config = convict({
     env: {
-        desc: 'Node Environment',
-        format: [ Environment.Development, Environment.Production, Environment.Test ],
         default: Environment.Development,
+        doc: 'Node Environment',
         env: 'NODE_ENV',
+        format: [ Environment.Development, Environment.Production, Environment.Test ],
     }
 });
 
@@ -22,4 +22,3 @@ export {
     Environment,
     getEnv,
 };
-

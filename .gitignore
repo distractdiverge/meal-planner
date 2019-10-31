@@ -1,3 +1,6 @@
+# Typescript
+dist/
+
 # VSCode
 .vscode/*
 !.vscode/settings.json
