@@ -1,5 +1,0 @@
-schemaVersion: "1.0.0"
-commandTests:
-  - name: meal-planner
-    command: ["/nodejs/bin/node", "./lib/index.js"]
-    expectedOutput: ['Hello World']

@@ -1,5 +1,5 @@
 {
-    "name": "aws-typescript",
+    "name": "@meal-planner/infrastructure",
     "author": "Alex Lapinski <contact@alexlapinski.name>",
     "repository": {
         "type": "git",
