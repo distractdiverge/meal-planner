@@ -26,6 +26,7 @@
     "typescript": "^3.6.4"
   },
   "dependencies": {
+    "aws-sdk": "^2.573.0",
     "convict": "5.2.0",
     "ramda": "0.26.1",
     "winston": "3.2.0"
