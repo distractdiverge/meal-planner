@@ -1,4 +1,8 @@
 # Meal Planner
+![Tests](https://github.com/alexlapinski/meal-planner/workflows/Tests/badge.svg)&nbsp;
+![Infrastructure Deploy](https://github.com/alexlapinski/meal-planner/workflows/Deploy%20Infrastructure/badge.svg)&nbsp;
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+
 A simple application to help plan meals for the week.
 
 ## Features
