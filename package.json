@@ -1,7 +1,21 @@
 {
-  "name": "root",
+  "name": "meal-planner",
   "private": true,
+  "scripts": {
+    "lint": "tslint -c tslint.json './packages/**/src/**/*.ts'",
+    "lint:fix": "npm run -s lint -- --fix",
+    "pretest": "npm run lint",
+    "test": "jest --forceExit --detectOpenHandles --coverage --verbose"
+  },
   "devDependencies": {
-    "lerna": "^3.14.1"
+    "@types/jest": "^24.0.23",
+    "jest": "^24.9.0",
+    "lerna": "^3.14.1",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.1",
+    "tslint-clean-code": "^0.2.10",
+    "tslint-consistent-codestyle": "^1.16.0",
+    "tslint-immutable": "^6.0.1",
+    "typescript": "^3.7.2"
   }
 }

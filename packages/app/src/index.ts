@@ -1,6 +1,6 @@
 import * as R from 'ramda';
-import inventory from './inventory';
-import { logDebug, logError, logInfo } from './logging';
+import inventory from './services/inventory';
+import { logDebug, logError, logInfo } from './services/logging';
 
 const main = async (inventoryFilepath: string) => {
   logInfo('Reading Inventory', { filepath: inventoryFilepath });
@@ -9,7 +9,7 @@ const main = async (inventoryFilepath: string) => {
 
   try {
     result = await inventory.readFile(inventoryFilepath);
-  } catch(error) {
+  } catch (error) {
     throw new Error(`Error Reading Inventory: ${error.message}`);
   }
 

@@ -1,0 +1,19 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-consistent-codestyle",
+    "tslint-clean-code",
+    "tslint-immutable"
+  ],
+  "rules": {
+    "quotemark": [true, "single"],
+    "semicolon": [true, "always"],
+    "no-expression-statement": [false]
+  },
+  "linterOptions": {
+    "exclude": [
+      "packages/**/node_modules/**/**.ts"
+    ]
+  }
+}

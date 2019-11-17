@@ -7,13 +7,13 @@ export enum Environment {
 }
 
 const config = convict({
-  env: {
-    default: Environment.Development,
-    doc: 'Node Environment',
-    env: 'NODE_ENV',
-    format: [Environment.Development, Environment.Production, Environment.Test],
-  },
   aws: {
+    dynamoDbApiVersion: {
+      default: '2012-08-10',
+      doc: 'The DynamoDB API Version "Date", e.g. "2012-08-10"',
+      env: 'AWS_DYNAMODB_API_VERSION',
+      format: 'string',
+    },
     profileName: {
       default: 'meal-planner',
       doc: 'AWS Profile name for credentials',
@@ -26,14 +26,13 @@ const config = convict({
       env: 'AWS_REGION',
       format: 'string',
     },
-    dynamoDbApiVersion: {
-      default: '2012-08-10',
-      doc: 'The DynamoDB API Version "Date", e.g. "2012-08-10"',
-      env: 'AWS_DYNAMODB_API_VERSION',
-      format: 'string',
-    },
   },
-
+  env: {
+    default: Environment.Development,
+    doc: 'Node Environment',
+    env: 'NODE_ENV',
+    format: [Environment.Development, Environment.Production, Environment.Test],
+  },
 });
 
 export interface AwsConfiguration {
