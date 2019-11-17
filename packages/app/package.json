@@ -13,13 +13,6 @@
         "build": "tsc",
         "start": "node ./lib/index.js"
     },
-    "devDependencies": {
-        "@types/convict": "4.2.1",
-        "@types/node": "^12.12.3",
-        "@types/ramda": "0.25.47",
-        "@types/winston": "2.4.4",
-        "typescript": "^3.6.4"
-    },
     "dependencies": {
         "aws-sdk": "^2.573.0",
         "convict": "5.2.0",

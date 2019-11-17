@@ -12,9 +12,6 @@
     "scripts": {
         "deploy": "pulumi up"
     },
-    "devDependencies": {
-        "@types/node": "8.10.56"
-    },
     "dependencies": {
         "@pulumi/aws": "1.7.0",
         "@pulumi/awsx": "0.18.12",
