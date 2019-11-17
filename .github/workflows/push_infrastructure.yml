@@ -1,8 +1,10 @@
-name: Pulumi
+name: Deploy Infrastructure
 on:
   push:
     branches:
       - master
+    paths:
+      - 'packages/infrastructure/**/*'
 jobs:
   up:
     name: Update
