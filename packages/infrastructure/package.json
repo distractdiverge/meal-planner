@@ -1,5 +1,6 @@
 {
     "name": "@meal-planner/infrastructure",
+    "description": "Pulumi Infrastructure as Code for the meal-planner application (within AWS).",
     "version": "0.1.0",
     "author": "Alex Lapinski <contact@alexlapinski.name>",
     "repository": {
@@ -7,6 +8,7 @@
         "url": "git@github.com:alexlapinski/meal-planner.git",
         "directory": "packages/infrastructure"
     },
+    "license": "MIT",
     "scripts": {
         "deploy": "pulumi up"
     },

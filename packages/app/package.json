@@ -1,29 +1,29 @@
 {
-  "name": "@meal-planner/app",
-  "description": "A configurable meal planner based on what we have in the house, and meeting healthy requirements.",
-  "version": "0.1.0",
-  "author": "Alex Lapinski <contact@alexlapinski.name>",
-  "repository": {
-      "type": "git",
-      "url": "git@github.com:alexlapinski/meal-planner.git",
-      "directory": "packages/app"
-  },
-  "license": "MIT",
-  "scripts": {
-    "build": "tsc",
-    "start": "node ./lib/index.js"
-  },
-  "devDependencies": {
-    "@types/convict": "4.2.1",
-    "@types/node": "^12.12.3",
-    "@types/ramda": "0.25.47",
-    "@types/winston": "2.4.4",
-    "typescript": "^3.6.4"
-  },
-  "dependencies": {
-    "aws-sdk": "^2.573.0",
-    "convict": "5.2.0",
-    "ramda": "0.26.1",
-    "winston": "3.2.0"
-  }
+    "name": "@meal-planner/app",
+    "description": "A configurable meal planner based on what we have in the house, and meeting healthy requirements.",
+    "version": "0.1.0",
+    "author": "Alex Lapinski <contact@alexlapinski.name>",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:alexlapinski/meal-planner.git",
+        "directory": "packages/app"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc",
+        "start": "node ./lib/index.js"
+    },
+    "devDependencies": {
+        "@types/convict": "4.2.1",
+        "@types/node": "^12.12.3",
+        "@types/ramda": "0.25.47",
+        "@types/winston": "2.4.4",
+        "typescript": "^3.6.4"
+    },
+    "dependencies": {
+        "aws-sdk": "^2.573.0",
+        "convict": "5.2.0",
+        "ramda": "0.26.1",
+        "winston": "3.2.0"
+    }
 }
