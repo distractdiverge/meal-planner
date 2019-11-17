@@ -1,6 +1,6 @@
 name: Tests
 on:
-  pull-request:
+  pull_request:
   push:
     paths:
       - '**/*.ts'
