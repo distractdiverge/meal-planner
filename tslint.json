@@ -9,7 +9,8 @@
   "rules": {
     "quotemark": [true, "single"],
     "semicolon": [true, "always"],
-    "no-expression-statement": [false]
+    "no-expression-statement": [false],
+    "interface-name": [false]
   },
   "linterOptions": {
     "exclude": [
