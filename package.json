@@ -1,5 +1,6 @@
 {
   "name": "meal-planner",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "lint": "tslint -c tslint.json './packages/**/src/**/*.ts'",
@@ -8,6 +9,7 @@
     "test": "jest --forceExit --detectOpenHandles --coverage --verbose"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.4.0",
     "@types/jest": "^24.0.23",
     "jest": "^24.9.0",
     "lerna": "^3.14.1",
