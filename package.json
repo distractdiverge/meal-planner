@@ -17,17 +17,17 @@
     },
     "devDependencies": {
         "@types/convict": "4.2.1",
-        "@types/jest": "^24.0.23",
+        "@types/jest": "24.0.23",
         "@types/node": "8.10.56",
         "@types/ramda": "0.25.47",
-        "jest": "^24.9.0",
-        "lerna": "^3.18.4",
-        "ts-jest": "^24.1.0",
-        "tslint": "^5.20.1",
-        "tslint-clean-code": "^0.2.10",
-        "tslint-consistent-codestyle": "^1.16.0",
-        "tslint-immutable": "^6.0.1",
-        "typescript": "^3.6.4"
+        "jest": "24.9.0",
+        "lerna": "3.18.4",
+        "ts-jest": "24.1.0",
+        "tslint": "5.20.1",
+        "tslint-clean-code": "0.2.10",
+        "tslint-consistent-codestyle": "1.16.0",
+        "tslint-immutable": "6.0.1",
+        "typescript": "3.7.2"
     },
     "dependencies": {
         "@meal-planner/app": "file:packages/app",
