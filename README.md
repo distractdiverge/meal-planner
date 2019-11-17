@@ -1,6 +1,6 @@
 # Meal Planner
-![Tests](https://github.com/alexlapinski/meal-planner/workflows/Tests/badge.svg)&nbsp;
-![Infrastructure Deploy](https://github.com/alexlapinski/meal-planner/workflows/Deploy%20Infrastructure/badge.svg)&nbsp;
+[![Tests](https://github.com/alexlapinski/meal-planner/workflows/Tests/badge.svg)](https://github.com/alexlapinski/meal-planner/actions?query=workflow%3ATests)&nbsp;
+[![Infrastructure Deploy](https://github.com/alexlapinski/meal-planner/workflows/Deploy%20Infrastructure/badge.svg)](https://github.com/alexlapinski/meal-planner/actions?query=workflow%3A%22Deploy+Infrastructure%22)&nbsp;
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 A simple application to help plan meals for the week.
