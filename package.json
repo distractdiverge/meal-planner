@@ -28,9 +28,5 @@
         "tslint-consistent-codestyle": "1.16.0",
         "tslint-immutable": "6.0.1",
         "typescript": "3.7.2"
-    },
-    "dependencies": {
-        "@meal-planner/app": "file:packages/app",
-        "@meal-planner/infrastructure": "file:packages/infrastructure"
     }
 }
