@@ -10,7 +10,8 @@
     },
     "license": "MIT",
     "scripts": {
-        "deploy": "pulumi up"
+        "deploy": "pulumi up",
+        "test": "jest"
     },
     "dependencies": {
         "@pulumi/aws": "1.7.0",
