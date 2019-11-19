@@ -13,7 +13,10 @@ const configureAws = (aws: GlobalConfigInstance, config: AwsConfiguration) => {
 
 const getClient = (awsConfig: AwsConfiguration) => {
   configureAws(AWS.config, awsConfig);
-  return new AWS.DynamoDB({ apiVersion: awsConfig.dynamoDbApiVersion });
+  return new AWS.DynamoDB({
+    apiVersion: awsConfig.dynamoDbApiVersion,
+    endpoint: awsConfig.endpoint,
+  });
 };
 
 const createItem = (client: AWS.DynamoDB, tableName: string, item: PutItemInputAttributeMap) =>

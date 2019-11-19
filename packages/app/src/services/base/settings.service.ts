@@ -12,19 +12,25 @@ const config = convict({
       default: '2012-08-10',
       doc: 'The DynamoDB API Version "Date", e.g. "2012-08-10"',
       env: 'AWS_DYNAMODB_API_VERSION',
-      format: 'string',
+      format: '*',
+    },
+    endpoint: {
+      default: 'http://localhost:8000',
+      doc: 'The endpoint url to sent requests to',
+      env: 'AWS_DYNAMODB_ENDPOINT',
+      format: 'url',
     },
     profileName: {
       default: 'meal-planner',
       doc: 'AWS Profile name for credentials',
       env: 'AWS_PROFILE',
-      format: 'string',
+      format: '*',
     },
     region: {
       default: 'us-east',
       doc: 'AWS Region Name',
       env: 'AWS_REGION',
-      format: 'string',
+      format: '*',
     },
   },
   env: {
@@ -39,6 +45,7 @@ export interface AwsConfiguration {
   profileName: string;
   region: string;
   dynamoDbApiVersion: string;
+  endpoint: string;
 }
 
 export const getEnv: () => Environment = () => config.get('env') as Environment;
