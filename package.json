@@ -19,7 +19,7 @@
         "@types/convict": "4.2.1",
         "@types/jest": "24.0.23",
         "@types/node": "8.10.56",
-        "@types/ramda": "0.25.47",
+        "@types/ramda": "0.26.36",
         "jest": "24.9.0",
         "lerna": "3.18.4",
         "ts-jest": "24.1.0",
