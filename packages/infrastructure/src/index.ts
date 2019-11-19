@@ -3,8 +3,8 @@ import { secret } from '@pulumi/pulumi';
 import { RandomPassword } from '@pulumi/random';
 
 const baseTags = {
-  env: 'dev',
   application: 'meal-planner',
+  env: 'dev',
 };
 
 const randomPassword = new RandomPassword('password', {
@@ -34,13 +34,12 @@ const database = new rds.Instance('meal-planner-database', {
   parameterGroupName: 'default.postgres11',
   password: randomPassword.result,
   publiclyAccessible: true,
-  vpcSecurityGroupIds: [securityGroup.id],
   skipFinalSnapshot: true,
   storageType: 'gp2', // GP2 = General Purpose SSD
-  username: 'mealplanner_service_admin',
   tags: Object.assign({}, {}, baseTags),
+  username: 'mealplanner_service_admin',
+  vpcSecurityGroupIds: [securityGroup.id],
 });
-
 
 export const identifier = database.id;
 export const availabilityZone = database.availabilityZone;

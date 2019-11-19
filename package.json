@@ -13,7 +13,7 @@
         "lint": "tslint -c tslint.json './packages/**/src/**/*.ts'",
         "lint:fix": "npm run -s lint -- --fix",
         "pretest": "npm run lint",
-        "test": "jest --forceExit --detectOpenHandles --coverage --verbose"
+        "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=meal-planner PULUMI_NODEJS_PROJECT=test jest --forceExit --detectOpenHandles --coverage --verbose"
     },
     "devDependencies": {
         "@types/convict": "4.2.1",
