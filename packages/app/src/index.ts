@@ -1,32 +1,34 @@
 import * as R from 'ramda';
-import * as DynamoDB from './services/base/dynamodb.service';
+import * as DynamoDBFactory from './services/base/dynamodb.service';
 import * as Settings from './services/base/settings.service';
 import inventory, { IInventory, IInventoryItem } from './services/inventory';
 import { logDebug, logError, logInfo } from './services/logging';
+import { DynamoDB } from 'aws-sdk';
+import { PutItemInputAttributeMap } from 'aws-sdk/clients/dynamodb';
 
-const getDbClient = () => {
+const getDbClient = (): DynamoDB => {
   const config = Settings.getAwsConfig();
   // DynamoDB.configureAws(AWS.config, config);
-  return DynamoDB.getClient(config);
+  return DynamoDBFactory.getClient(config);
 };
 
-const makeDbItem = (location: string, id: number, item: IInventoryItem) => ({
+const makeDbItem = (location: string, id: number, item: IInventoryItem): PutItemInputAttributeMap => ({
   COUNT: { N: `${item.count}` },
   ID: { N: `${id}` },
   LOCATION: { S: location },
   NAME: { S: item.name },
 });
 
-const loadInventory = async (dbClient: any, content: IInventory) => {
+const loadInventory = async (dbClient: DynamoDB, content: IInventory): Promise<void> => {
   let id = 1;
   const operations = content.fridge.map((item) => {
-    const operation = DynamoDB.createItem(dbClient, 'Inventory', makeDbItem('Fridge', id, item));
+    const operation = DynamoDBFactory.createItem(dbClient, 'Inventory', makeDbItem('Fridge', id, item));
     id++;
     return operation;
   });
 
   const moreOperations = content.pantry.map((item) => {
-    const operation = DynamoDB.createItem(dbClient, 'Inventory', makeDbItem('Pantry', id, item));
+    const operation = DynamoDBFactory.createItem(dbClient, 'Inventory', makeDbItem('Pantry', id, item));
     id++;
     return operation;
   });
@@ -35,15 +37,11 @@ const loadInventory = async (dbClient: any, content: IInventory) => {
   await Promise.all(moreOperations);
 };
 
-const provisionTable = (dbClient: any) => {
-
-};
-
-const main = async (inventoryFilepath: string) => {
+const main = async (inventoryFilepath: string): Promise<void> => {
   const dbClient = getDbClient();
 
   // TODO: Create Table
-  provisionTable(dbClient);
+  // provisionTable(dbClient);
 
   logInfo('Reading Inventory', { filepath: inventoryFilepath });
 

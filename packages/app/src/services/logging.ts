@@ -18,16 +18,16 @@ const logger = createLogger({
   ],
 });
 
-const log = (level: LoggingLevel, msg: string, meta?: any): void => {
+const log = (level: LoggingLevel, msg: string, meta?: object): void => {
   logger.log(level, msg, meta);
 
   return;
 };
 
-const logDebug = (msg: string, meta?: object) => log(LoggingLevel.Debug, msg, meta);
-const logInfo = (msg: string, meta?: object) => log(LoggingLevel.Info, msg, meta);
-const logWarn = (msg: string, meta?: object) => log(LoggingLevel.Warn, msg, meta);
-const logError = (msg: string, meta?: object) => log(LoggingLevel.Error, msg, meta);
+const logDebug = (msg: string, meta?: object): void => log(LoggingLevel.Debug, msg, meta);
+const logInfo = (msg: string, meta?: object): void => log(LoggingLevel.Info, msg, meta);
+const logWarn = (msg: string, meta?: object): void => log(LoggingLevel.Warn, msg, meta);
+const logError = (msg: string, meta?: object): void => log(LoggingLevel.Error, msg, meta);
 
 export {
     log,

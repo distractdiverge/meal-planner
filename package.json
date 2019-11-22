@@ -1,6 +1,6 @@
 {
-    "name": "meal-planner",
-    "version": "0.0.0",
+    "name": "@meal-planner/root",
+    "version": "0.1.0",
     "private": true,
     "author": "Alex Lapinski <contact@alexlapinski.name>",
     "repository": {
@@ -9,24 +9,10 @@
     },
     "license": "MIT",
     "scripts": {
-        "postinstall": "lerna bootstrap",
-        "lint": "tslint -c tslint.json './packages/**/src/**/*.ts'",
-        "lint:fix": "npm run -s lint -- --fix",
-        "pretest": "npm run lint",
-        "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=meal-planner PULUMI_NODEJS_PROJECT=test jest --forceExit --detectOpenHandles --coverage --verbose"
+        "lint": "lerna run lint --stream",
+        "postinstall": "lerna bootstrap --hoist --no-ci"
     },
     "devDependencies": {
-        "@types/convict": "4.2.1",
-        "@types/jest": "24.0.23",
-        "@types/node": "8.10.56",
-        "@types/ramda": "0.25.47",
-        "jest": "24.9.0",
-        "lerna": "3.18.4",
-        "ts-jest": "24.1.0",
-        "tslint": "5.20.1",
-        "tslint-clean-code": "0.2.10",
-        "tslint-consistent-codestyle": "1.16.0",
-        "tslint-immutable": "6.0.1",
-        "typescript": "3.7.2"
+        "lerna": "3.18.4"
     }
 }

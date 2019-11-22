@@ -1,12 +1,12 @@
 import * as fs from 'fs';
 import * as R from 'ramda';
 
-export interface IInventory {
-  readonly fridge: ReadonlyArray<IInventoryItem>;
-  readonly pantry: ReadonlyArray<IInventoryItem>;
+export interface Inventory {
+  readonly fridge: ReadonlyArray<InventoryItem>;
+  readonly pantry: ReadonlyArray<InventoryItem>;
 }
 
-export interface IInventoryItem {
+export interface InventoryItem {
   readonly name: string;
   readonly count: number;
 }

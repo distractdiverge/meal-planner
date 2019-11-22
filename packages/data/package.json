@@ -1,0 +1,28 @@
+{
+  "name": "data",
+  "version": "0.1.0",
+  "description": "Data migrations and seeders for the meal-planner app.",
+  "author": "Alex Lapinski <contact@alexlapinski.name>",
+  "homepage": "https://github.com/alexlapinski/meal-planner/packages/data#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexlapinski/meal-planner.git",
+    "directory": "packages/data"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@aws/dynamodb-data-mapper": "^0.7.3",
+    "aws-sdk": "^2.577.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "eslint": "^6.6.0",
+    "typescript": "^3.7.2"
+  }
+}
