@@ -10,9 +10,12 @@
     "license": "MIT",
     "scripts": {
         "lint": "lerna run lint --stream",
-        "postinstall": "lerna bootstrap --hoist --no-ci"
+        "test": "lerna run test --stream",
+        "start": "lerna run start --stream",
+        "postinstall": "lerna bootstrap"
     },
     "devDependencies": {
+        "husky": "^3.1.0",
         "lerna": "3.18.4"
     }
 }
