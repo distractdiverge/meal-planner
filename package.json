@@ -12,10 +12,16 @@
         "lint": "lerna run lint --stream",
         "test": "lerna run test --stream",
         "start": "lerna run start --stream",
-        "postinstall": "lerna bootstrap"
+        "postinstall": "lerna bootstrap",
+        "clean": "lerna clean -y"
     },
     "devDependencies": {
         "husky": "^3.1.0",
         "lerna": "3.18.4"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lerna run --concurrency 1 --stream precommit"
+        }
     }
 }
