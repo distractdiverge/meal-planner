@@ -1,0 +1,17 @@
+graph LR
+    subgraph Read Inventory
+    step1.0[Read JSON]
+    end
+
+    subgraph Read Nutrition Information
+    step1.0 --> step2.1[Fetch Nutrition Info]
+    step2.1 --> step2.2[Zip with Inventory Info]
+    end
+
+    subgraph Produce Potential Plans
+    step2.2 --> step3.0
+    end
+
+    subgraph Plan Presentation
+    step3.0 --> done
+    end
