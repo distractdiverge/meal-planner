@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import * as DynamoDBFactory from './services/base/dynamodb.service';
 import * as Settings from './services/base/settings.service';
-import inventory, { IInventory, IInventoryItem } from './services/inventory';
+import inventory, { IInventory, IInventoryItem } from './services/inventory.service';
 import { logDebug, logError, logInfo } from './services/base/logging';
 import { DynamoDB } from 'aws-sdk';
 import { PutItemInputAttributeMap } from 'aws-sdk/clients/dynamodb';

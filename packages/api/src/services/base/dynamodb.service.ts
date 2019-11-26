@@ -2,7 +2,8 @@ import * as AWS from 'aws-sdk';
 import { PutItemInputAttributeMap, PutItemOutput } from 'aws-sdk/clients/dynamodb';
 import { GlobalConfigInstance } from 'aws-sdk/lib/config';
 import { AwsConfiguration } from './settings.service';
-import { AWSError, PromiseResult } from 'aws-sdk';
+import { AWSError } from 'aws-sdk';
+import { PromiseResult } from 'aws-sdk/lib/request';
 
 const readSystemCredentials = (awsProfileName: string): AWS.SharedIniFileCredentials =>
     new AWS.SharedIniFileCredentials({ profile: awsProfileName });
