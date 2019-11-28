@@ -20,22 +20,36 @@ export const readFileAsync = (filepath: string): Promise<Buffer> =>
         )
     );
 
+export const extractItems = (arrayKey: string): (content: any) => ReadonlyArray<Item> => 
+        R.pipe(
+            R.prop(arrayKey),
+            R.ifElse(
+                R.has(arrayKey),    
+                R.map((rawItem: any) => <Item>({
+                    name: R.prop('name', rawItem),
+                    count: R.prop('count', rawItem),
+                })),
+                () => [],
+            ),
+        );
+
 export const readFileAsJson = (filepath: string): Promise<object> =>
     readFileAsync(filepath)
         .then(buffer => buffer.toString())
         .then(JSON.parse);
 
-const getFridgeItems = async (filepath: string): ReadonlyArray<Item> => {
+const getFridgeItems = async (filepath: string): Promise<ReadonlyArray<Item>> => {
     const content = await readFileAsJson(filepath);
-    return R.prop('fridge', content);
+    return extractItems('fridge')(content);
 };
 
-const getPantryItems = async (filepath: string): ReadonlyArray<Item> => {
+const getPantryItems = async (filepath: string): Promise<ReadonlyArray<Item>> => {
     const content = await readFileAsJson(filepath);
-    return R.prop('pantry', content);
+    return extractItems('pantry')(content);
 };
 
 export default {
+    extractItems, // TODO: Move to its own file?
     readFileAsync, // TODO: Move tjis to its own file
     readFileAsJson, // TODO: Extract to its own file
     getFridgeItems,
