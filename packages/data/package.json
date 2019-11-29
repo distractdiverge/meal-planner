@@ -12,14 +12,19 @@
     "directory": "packages/data"
   },
   "scripts": {
+    "build": "tsc",
     "lint": "eslint . --ext .ts",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "preseed": "npm run build",
+    "seed": "node ./dist/load-database-schema.js"
   },
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
-    "aws-sdk": "^2.577.0"
+    "aws-sdk": "^2.580.0",
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
+    "@types/ramda": "^0.26.36",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
     "eslint": "^6.6.0",
