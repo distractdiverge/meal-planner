@@ -24,12 +24,12 @@
     "ramda": "^0.26.1"
   },
   "devDependencies": {
-    "@types/ramda": "^0.26.36",
-    "@typescript-eslint/eslint-plugin": "^2.8.0",
-    "@typescript-eslint/parser": "^2.8.0",
-    "eslint": "^6.6.0",
-    "lint-staged": "^9.4.3",
-    "typescript": "^3.7.2"
+    "@types/ramda": "0.26.36",
+    "@typescript-eslint/eslint-plugin": "2.8.0",
+    "@typescript-eslint/parser": "2.8.0",
+    "eslint": "6.6.0",
+    "lint-staged": "9.4.3",
+    "typescript": "3.7.2"
   },
   "lint-staged": {
     "src/**/*.ts": [

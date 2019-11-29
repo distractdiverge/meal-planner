@@ -17,10 +17,10 @@
         "docs": "./scripts/generate-diagrams.sh"
     },
     "devDependencies": {
-        "husky": "^3.1.0",
+        "husky": "3.1.0",
         "lerna": "3.18.4",
-        "mermaid": "^8.4.2",
-        "mermaid.cli": "^0.5.1"
+        "mermaid": "8.4.2",
+        "mermaid.cli": "0.5.1"
     },
     "husky": {
         "hooks": {
