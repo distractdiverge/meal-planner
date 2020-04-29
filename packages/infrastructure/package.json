@@ -15,7 +15,7 @@
         "test": "echo 'TODO: Implement Unit Tests'; return -1;"
     },
     "dependencies": {
-        "@pulumi/aws": "1.7.0",
+        "@pulumi/aws": "1.31.0",
         "@pulumi/awsx": "0.18.12",
         "@pulumi/pulumi": "1.4.0",
         "@pulumi/random": "1.1.0"
