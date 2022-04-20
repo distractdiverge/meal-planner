@@ -23,7 +23,7 @@
         "@types/node": "^12.12.11",
         "@types/ramda": "^0.26.36",
         "aws-sdk": "2.573.0",
-        "convict": "5.2.0",
+        "convict": "6.2.2",
         "jest": "^24.9.0",
         "ramda": "0.26.1",
         "ts-jest": "^24.1.0",
